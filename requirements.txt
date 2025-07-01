@@ -1,0 +1,7 @@
+selenium
+pytest
+pytest-html
+pytest-xdist
+streamlit
+pandas
+matplotlib

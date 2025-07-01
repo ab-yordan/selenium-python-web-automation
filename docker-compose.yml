@@ -1,0 +1,19 @@
+services:
+  test-runner:
+    build: .
+    container_name: selenium_tests
+    volumes:
+      - .:/app
+    environment:
+      - BROWSER=chrome #chrome or firefox
+      - IS_DOCKER=true 
+    command: pytest tests/ --html=reports/report.html
+
+  dashboard:
+    build: .
+    container_name: streamlit_dashboard
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"
+    command: streamlit run dashboard/app.py
